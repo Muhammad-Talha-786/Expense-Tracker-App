@@ -1,5 +1,6 @@
 // Basic React import
 import React, { useContext } from 'react';
+
 // Context API import
 import { GlobalContext } from '../Context';
 
