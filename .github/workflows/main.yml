@@ -35,4 +35,4 @@ jobs:
         run: npm install -g surge
         
       - name: Deploying using surge
-        run: surge ./build ${{ secrets.SURGE_DOMAIN }} --token ${{ secrets.SURGE_TOKEN }}
+        run: surge ./build ${{ etapp.surge.sh }} --token ${{ f630e8927c77627f61b8543ffb3e1eae }}
