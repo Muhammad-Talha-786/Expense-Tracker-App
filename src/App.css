@@ -1,197 +1,38 @@
-/* Main html body styling*/
-body {
-  background-color: #f7f7f7;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  font-family: serif;
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
   min-height: 100vh;
   display: flex;
-  margin: 0;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
 }
 
-/* Universal Selector */
-* {
-  box-sizing: border-box;
+.App-link {
+  color: #61dafb;
 }
 
-/* h1 text styling */
-h1 {
-  letter-spacing: 1px;
-  margin: 0;
-}
-
-/* h3 text styling */
-h3 {
-  border-bottom: 1px solid #bbb;
-  padding-bottom: 10px;
-  margin: 40px 0 10px;
-}
-
-/* h4 text styling */
-h4 {
-  text-transform: uppercase;
-  margin: 0;
-}
-
-/* Main box styling */
-.box {
-  background-color: #ededed;
-  box-shadow: 0px 0px 10px firebrick;
-  max-width: 600px;
-  min-height: 400px;
-  margin: 0 auto;
-  padding: 20px 50px;
-  margin-top: 50px;
-  margin-bottom: 50px;
-}
-
-/* Header Component */
-.header {
-  text-align: center;
-} 
-
-/* App Contents */
-.container {
-  margin: 30px auto;
-  width: 350px;
-}
-
-/* Income Expense container */
-.inc-exp-container {
-  background-color: #ffffff;
-  box-shadow: var(--box-shadow);
-  justify-content: space-between;
-  border-right: 5px solid #c0392b;
-  border-left: 5px solid #2ecc71;
-  padding: 20px;
-  display: flex;
-  margin: 20px 0;
-}
-
-/* Income Expense div content */
-.inc-exp-container > div {
-  text-align: center;
-  flex: 1;
-  
-}
-
-/* Income Expense Box center line */
-.inc-exp-container > div:first-of-type {
-  border-right: 1px solid firebrick;
-}
-
-/* Income Expense content */
-.money {
-  font-size: 20px;
-  letter-spacing: 1px;
-  margin: 5px 0;
-}
-
-/* Expense Color */
-.money.plus {
-  color: #2ecc71;
-}
-
-/* Income Color */
-.money.minus {
-  color: #c0392b;
-}
-
-/* Transaction lists */
-.list {
-  list-style-type: none;
-  margin-bottom: 40px;
-  padding: 0;
-}
-
-/* Income Expense list`s content styling */
-.list li {
-  background-color: #fff;
-  justify-content: space-between;
-  position: relative;
-  display: flex;
-  padding: 10px;
-  margin: 10px 0;
-  color: #333;
-}
-
-/* Sets opacity of delete button and lists to 1 when hover */
-.list li:hover .delete-btn {
-  opacity: 1;
-}
-
-/* Add border on income lists */
-.list li.plus {
-  border-right: 5px solid #2ecc71;
-  border-left: 5px solid #2ecc71;
-}
-
-/* Add border on expense lists */
-.list li.minus {
-  border-right: 5px solid #c0392b;
-  border-left: 5px solid #c0392b;
-}
-
-/* Transaction form lables */
-label {
-  display: inline-block;
-  font-weight: bold;
-  margin: 10px 0;
-}
-
-/* Transaction form input fields */
-input[type='text'],
-input[type='number'] {
-  border: 1px solid #dedede;
-  border-radius: 2px;
-  display: block;
-  font-size: 16px;
-  padding: 10px;
-  width: 100%;
-  outline: 0;
-}
-
-/* Add Transaction Button*/
-.btn {
-  cursor: pointer;
-  background-color: #9c88ff;
-  box-shadow: var(--box-shadow);
-  color: #fff;
-  border: 0;
-  display: block;
-  font-size: 16px;
-  margin: 10px 0 30px;
-  padding: 10px;
-  width: 100%;
-}
-
-/* Delete Button on focus hide outline */ 
-.btn:focus,
-.delete-btn:focus {
-  outline: 0;
-}
-
-/* Delete Button */ 
-.delete-btn {
-  cursor: pointer;
-  background-color: #e74c3c;
-  transform: translate(-100%, -50%);
-  transition: opacity 0.3s ease;
-  border: 0;
-  color: #fff;
-  font-size: 20px;
-  line-height: 20px;
-  padding: 2px 5px;
-  position: absolute;
-  top: 50%;
-  left: 0;
-  opacity: 0;
-}
-
-/* media query for responsive behaviour on mobile device*/
-@media (max-width: 320px) {
-  .container {
-    width: 300px;
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
   }
 }
