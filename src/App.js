@@ -1,23 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import { Container, Row, Col } from "react-bootstrap";
+import "bootstrap/dist/css/bootstrap.min.css";
+import Left from "./Components/Left";
+import Right from "./Components/Right";
+import "./App.css";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Hello World
-        </a>
-      </header>
+      <Container fluid>
+        <Row>
+          {/* Left Section ----> Navigation Bar */}
+          <Col md={2}>
+            <Left />
+          </Col>
+
+          {/* Right Section ----> Expense Tracker UI */}
+          <Col md={10} style={{ backgroundColor: "#EEF2FF", height: "100vh" }}>
+            <Right />
+          </Col>
+        </Row>
+      </Container>
     </div>
   );
 }
