@@ -1,29 +1,25 @@
-import React from 'react';
-import { Container, Navbar, Button, Row, Col } from "react-bootstrap";
+import React from "react";
+import Header from "./Header";
+import Balance from "./Balance";
+import Graph from "./Graph";
+import { Col, Container, Row } from "react-bootstrap";
 
 const Right = () => {
-    return (
-      <div>
-        <Navbar variant="dark">
-          <Container className="my-2">
-            <p
-              style={{
-                color: "#8B5CF6",
-                fontWeight: "bold",
-                fontSize: "1.2rem",
-              }}
-              className="my-auto"
-            >
-              Dashboard
-            </p>
-            <Button style={{ backgroundColor: "#8B5CF6" }}>
-              {" "}
-              + New Expense
-            </Button>
-          </Container>
-        </Navbar>
-      </div>
-    );
-}
+  return (
+    <div>
+      <Container>
+        <Row>
+          <Col md={8}>
+            <Header />
+            <Balance />
+          </Col>
+          <Col md={4}>
+            <Graph />
+          </Col>
+        </Row>
+      </Container>
+    </div>
+  );
+};
 
 export default Right;
