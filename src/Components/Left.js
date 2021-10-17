@@ -12,26 +12,26 @@ const Left = () => {
       <div
         className="text-center"
         style={{
-          color: "#3730A3",
+          color: "#fff",
           fontWeight: "bold",
           fontSize: "1rem",
         }}
       >
-        E<SiExpertsexchange color="#6366F1" size="4.5rem" className="my-5" />
+        E<SiExpertsexchange color="#fff" size="4.5rem" className="my-5" />
         pense
       </div>
 
       <Container>
         <Row className="my-4">
           <Col md={3} className="my-auto">
-            <MdOutlineDashboard color="#3730A3" size="1.5rem" />
+            <MdOutlineDashboard color="#fff" size="1.5rem" />
           </Col>
 
           <Col md={9} className="my-auto">
             <h6
               className="my-auto"
               style={{
-                color: "#3730A3",
+                color: "#fff",
                 fontWeight: "bold",
               }}
             >
@@ -42,14 +42,14 @@ const Left = () => {
 
         <Row className="my-4">
           <Col md={3} className="my-auto">
-            <AiOutlineNodeExpand color="#818CF8" size="1.5rem" />
+            <AiOutlineNodeExpand color= "#fff" size="1.5rem" />
           </Col>
 
           <Col md={9} className="my-auto">
             <h6
               className="my-auto"
               style={{
-                color: "#818CF8",
+                color: "#fff",
                 fontWeight: "bold",
               }}
             >
@@ -60,14 +60,14 @@ const Left = () => {
 
         <Row className="my-4">
           <Col md={3} className="my-auto">
-            <IoReceipt color="#818CF8" size="1.5rem" />
+            <IoReceipt color="#fff" size="1.5rem" />
           </Col>
 
           <Col md={9} className="my-auto">
             <h6
               className="my-auto"
               style={{
-                color: "#818CF8",
+                color: "#fff",
                 fontWeight: "bold",
               }}
             >
@@ -78,14 +78,14 @@ const Left = () => {
 
         <Row className="my-4">
           <Col md={3} className="my-auto">
-            <BsPersonLinesFill color="#818CF8" size="1.5rem" />
+            <BsPersonLinesFill color="#fff" size="1.5rem" />
           </Col>
 
           <Col md={9} className="my-auto">
             <h6
               className="my-auto"
               style={{
-                color: "#818CF8",
+                color: "#fff",
                 fontWeight: "bold",
               }}
             >
@@ -96,14 +96,14 @@ const Left = () => {
 
         <Row className="my-4">
           <Col md={3} className="my-auto">
-            <AiTwotoneExperiment color="#818CF8" size="1.5rem" />
+            <AiTwotoneExperiment color="#fff" size="1.5rem" />
           </Col>
 
           <Col md={9} className="my-auto">
             <h6
               className="my-auto"
               style={{
-                color: "#818CF8",
+                color: "#fff",
                 fontWeight: "bold",
               }}
             >
