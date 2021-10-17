@@ -53,7 +53,7 @@ const Left = () => {
                 fontWeight: "bold",
               }}
             >
-              Expenses
+              Transits
             </h6>
           </Col>
         </Row>

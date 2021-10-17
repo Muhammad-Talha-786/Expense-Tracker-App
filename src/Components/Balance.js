@@ -6,7 +6,7 @@ const Balance = () => {
   return (
     <div>
       <Container>
-        <Row className="my-3 mx-auto">
+        <Row className="my-5 mx-auto">
           <Col className="mx-5">
             <p
               style={{
