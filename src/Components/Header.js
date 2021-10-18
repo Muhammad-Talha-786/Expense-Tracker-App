@@ -1,7 +1,11 @@
-import React from 'react';
+import React, { useState } from "react";
 import { Container, Navbar, Button } from "react-bootstrap";
+import AddTransaction from './AddTransaction';
 
 const Header = () => {
+
+  const [modalShow, setModalShow] = useState(false);
+
     return (
       <div className="mt-3">
         <Navbar variant="dark">
@@ -16,7 +20,15 @@ const Header = () => {
             >
               Dashboard
             </p>
-            <Button style={{ backgroundColor: "#8B5CF6" }}>
+            <AddTransaction
+              show={modalShow}
+              onHide={() => setModalShow(false)}
+            />
+            
+            <Button
+              style={{ backgroundColor: "#8B5CF6" }}
+              onClick={() => setModalShow(true)}
+            >
               {" "}
               + New Expense
             </Button>

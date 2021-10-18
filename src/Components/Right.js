@@ -1,16 +1,15 @@
 import React from "react";
 import Header from "./Header";
 import Balance from "./Balance";
-import Transactions from "./Transactions";
+import TransactionList from "./TransactionList";
 import Footer from "./Footer";
 
 const Right = () => {
   return (
     <div>
       <Header />
-      <hr />
       <Balance />
-      <Transactions />
+      <TransactionList />
       <Footer />
     </div>
   );
