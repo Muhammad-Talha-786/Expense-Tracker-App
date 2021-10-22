@@ -1,103 +1,60 @@
-import React from "react";
-import { Col, Container, Row } from "react-bootstrap";
-import { MdAccountBalanceWallet } from "react-icons/md"; 
-import { FaMoneyBillWave } from "react-icons/fa"; 
-import { RiBillFill } from "react-icons/ri";
+import React, { useContext } from "react";
+import { Container, Row, Col } from "react-bootstrap";
+import { GlobalContext } from "../context/GlobalState";
 
-const Balance = () => {
+//Money formatter function
+function moneyFormatter(num) {
+  let p = num.toFixed(2).split(".");
   return (
-    <div>
-      <Container>
-        <Row className="my-5 mx-auto">
-          <Col className="mx-5">
-            <p
-              style={{
-                color: "#312E81",
-                fontWeight: "bold",
-                fontSize: "0.7rem",
-              }}
-            >
-              Total Deposit
-            </p>
-            <Row>
-              <Col md={2}>
-                <FaMoneyBillWave color="#10B981" size="1.5rem" />
-              </Col>
+    "$ " +
+    p[0]
+      .split("")
+      .reverse()
+      .reduce(function (acc, num, i, orig) {
+        return num === "-" ? acc : num + (i && !(i % 3) ? "," : "") + acc;
+      }, "") +
+    "." +
+    p[1]
+  );
+}
 
-              <Col md={10} className="my-auto">
-                <h6
-                  style={{
-                    color: "#10B981",
-                    fontWeight: "bold",
-                    fontSize: "1.5rem",
-                  }}
-                >
-                  $3000
-                </h6>
-              </Col>
-            </Row>
-          </Col>
+export const Balance = () => {
+  const { transactions } = useContext(GlobalContext);
 
-          <Col className="mx-5">
-            <p
-              style={{
-                color: "#312E81",
-                fontWeight: "bold",
-                fontSize: "0.7rem",
-              }}
-            >
-              Total Expense
-            </p>
-            <Row>
-              <Col md={2}>
-                <RiBillFill color="#EF4444" size="1.5rem" />
-              </Col>
+  const amounts = transactions.map((transaction) => transaction.amount);
 
-              <Col md={10} className="my-auto">
-                <h6
-                  style={{
-                    color: "#EF4444",
-                    fontWeight: "bold",
-                    fontSize: "1.5rem",
-                  }}
-                >
-                  $1500
-                </h6>
-              </Col>
-            </Row>
-          </Col>
-          <Col className="mx-5">
-            <p
-              style={{
-                color: "#312E81",
-                fontWeight: "bold",
-                fontSize: "0.7rem",
-              }}
-            >
-              Current Balance
-            </p>
-            <Row>
-              <Col md={2}>
-                <MdAccountBalanceWallet color="#3B82F6" size="1.5rem" />
-              </Col>
+  const total = amounts.reduce((acc, item) => (acc += item), 0);
 
-              <Col md={10} className="my-auto">
-                <h6
-                  style={{
-                    color: "#3B82F6",
-                    fontWeight: "bold",
-                    fontSize: "1.5rem",
-                  }}
-                >
-                  $3000
-                </h6>
-              </Col>
-            </Row>
-          </Col>
-        </Row>
-      </Container>
-    </div>
+  const income = amounts
+    .filter((item) => item > 0)
+    .reduce((acc, item) => (acc += item), 0);
+
+  const expense =
+    amounts.filter((item) => item < 0).reduce((acc, item) => (acc += item), 0) *
+    -1;
+
+  return (
+    <Container>
+      <Row className="text-center my-5">
+        <Col md={4}>
+          <div className="inexp">
+            <h4 className="money">Account Balance</h4>
+            <p className="balance">{moneyFormatter(total)}</p>
+          </div>
+        </Col>
+        <Col md={4}>
+          <div className="inexp">
+            <h4 className="money">Total Income</h4>
+            <p className="plus">{moneyFormatter(income)}</p>
+          </div>
+        </Col>
+        <Col md={4}>
+          <div className="inexp">
+            <h4 className="money">Total Expense</h4>
+            <p className="minus">{moneyFormatter(expense)}</p>
+          </div>
+        </Col>
+      </Row>
+    </Container>
   );
 };
-
-export default Balance;

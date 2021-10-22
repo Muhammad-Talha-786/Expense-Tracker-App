@@ -1,47 +1,53 @@
-import React from "react";
-import { Modal, Form, Button } from "react-bootstrap";
+import React, { useState, useContext } from "react";
+import { GlobalContext } from "../context/GlobalState";
 
-const AddTransaction = (props) => {
+export const AddTransaction = () => {
+  
+  const [text, setText] = useState("");
+  const [amount, setAmount] = useState();
+
+  const { addTransaction } = useContext(GlobalContext);
+
+  const onSubmit = (e) => {
+    e.preventDefault();
+
+    const newTransaction = {
+      id: Math.floor(Math.random() * 100000000),
+      text,
+      amount: +amount,
+    };
+
+    addTransaction(newTransaction);
+  };
+
   return (
-    <div>
-      <Modal
-        {...props}
-        size="lg"
-        aria-labelledby="contained-modal-title-vcenter"
-        centered
-      >
-        <Modal.Header closeButton>
-          <Modal.Title id="contained-modal-title-vcenter">
-            Add New Transaction
-          </Modal.Title>
-        </Modal.Header>
-        <Modal.Body className="show-grid">
-          <Form>
-            <Form.Group className="mb-3" controlId="formBasicEmail">
-              <Form.Label>Transaction Category</Form.Label>
-              <Form.Control
-                type="email"
-                placeholder="Enter the title of transaction."
-              />
-            </Form.Group>
-
-            <Form.Group className="mb-3" controlId="formBasicPassword">
-              <Form.Label>Transaction Amount</Form.Label>
-              <Form.Control
-                type="password"
-                placeholder="Enter the transaction amount."
-              />
-            </Form.Group>
-          </Form>
-        </Modal.Body>
-        <Modal.Footer className="text-center mx-auto">
-          <Button style={{ backgroundColor: "#8B5CF6" }} onClick={props.onHide}>
-            Add Transaction
-          </Button>
-        </Modal.Footer>
-      </Modal>
-    </div>
+    <>
+      <form onSubmit={onSubmit}>
+        <div className="form-control my-2">
+          <label htmlFor="text">Vendor / Category</label>
+          <input
+            type="text"
+            value={text}
+            onChange={(e) => setText(e.target.value)}
+            placeholder="Enter text..."
+          />
+        </div>
+        <div className="form-control my-2">
+          <label htmlFor="amount">Transaction Amount</label>
+          <input
+            type="number"
+            value={amount}
+            onChange={(e) => setAmount(e.target.value)}
+            placeholder="Enter amount..."
+          />
+          <p style={{ fontSize: "0.7rem", color: "gray", marginTop: "2px" }}>
+            ( -ve for Expense / +ve for Income )
+          </p>
+        </div>
+        <button className="addTransactionButton" variant="outline-light">
+          Add Transaction
+        </button>
+      </form>
+    </>
   );
 };
-
-export default AddTransaction;

@@ -1,26 +1,23 @@
-import { Container, Row, Col } from "react-bootstrap";
+import React from "react";
+
 import "bootstrap/dist/css/bootstrap.min.css";
-import Left from "./Components/Left";
-import Right from "./Components/Right";
-import "./App.css";
+
+import { Header } from "./components/Header";
+
+import { Balance } from "./components/Balance";
+import { TransactionList } from "./components/TransactionList";
+
+import { GlobalProvider } from "./context/GlobalState";
+
+import './App.css';
 
 function App() {
   return (
-    <div className="App">
-      <Container fluid>
-        <Row>
-          {/* Left Section ----> Navigation Bar */}
-          <Col md={2}>
-            <Left />
-          </Col>
-
-          {/* Right Section ----> Expense Tracker UI */}
-          <Col md={10} style={{ backgroundColor: "#EEF2FF", height: "100vh" }}>
-            <Right />
-          </Col>
-        </Row>
-      </Container>
-    </div>
+    <GlobalProvider>
+      <Header />
+      <Balance />
+      <TransactionList />
+    </GlobalProvider>
   );
 }
 

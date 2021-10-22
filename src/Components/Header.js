@@ -1,41 +1,36 @@
 import React, { useState } from "react";
-import { Container, Navbar, Button } from "react-bootstrap";
-import AddTransaction from './AddTransaction';
+import { Container, Navbar, Button, Modal } from "react-bootstrap";
+import { AddTransaction } from "./AddTransaction";
 
-const Header = () => {
+export const Header = () => {
+  const [show, setShow] = useState(false);
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
 
-  const [modalShow, setModalShow] = useState(false);
+  return (
+    <Navbar bg="dark" variant="dark">
+      <Container className="my-3">
+        <Navbar.Brand href="#home">Expense Tracker App</Navbar.Brand>
 
-    return (
-      <div className="mt-3">
-        <Navbar variant="dark">
-          <Container className="my-2">
-            <p
-              style={{
-                color: "#8B5CF6",
-                fontWeight: "bold",
-                fontSize: "1.2rem",
-              }}
-              className="my-auto"
-            >
-              Dashboard
-            </p>
-            <AddTransaction
-              show={modalShow}
-              onHide={() => setModalShow(false)}
-            />
-            
-            <Button
-              style={{ backgroundColor: "#8B5CF6" }}
-              onClick={() => setModalShow(true)}
-            >
-              {" "}
-              + New Expense
+        <Button variant="outline-light" onClick={handleShow}>
+          {" "}
+          + New Transaction{" "}
+        </Button>
+
+        <Modal show={show} onHide={handleClose}>
+          <Modal.Header closeButton>
+            <Modal.Title>Add New Transaction</Modal.Title>
+          </Modal.Header>
+          <Modal.Body>
+            <AddTransaction />
+          </Modal.Body>
+          <Modal.Footer>
+            <Button variant="dark" onClick={handleClose}>
+              Close
             </Button>
-          </Container>
-        </Navbar>
-      </div>
-    );
-}
-
-export default Header;
+          </Modal.Footer>
+        </Modal>
+      </Container>
+    </Navbar>
+  );
+};
