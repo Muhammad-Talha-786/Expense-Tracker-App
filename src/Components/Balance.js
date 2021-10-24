@@ -37,21 +37,21 @@ export const Balance = () => {
     <Container>
       <Row className="text-center my-5">
         <Col md={4}>
-          <div className="inexp">
+          <div className="inexp balance">
             <h4 className="money">Account Balance</h4>
-            <p className="balance">{moneyFormatter(total)}</p>
+            <p>{moneyFormatter(total)}</p>
           </div>
         </Col>
         <Col md={4}>
-          <div className="inexp">
+          <div className="inexp plus">
             <h4 className="money">Total Income</h4>
-            <p className="plus">{moneyFormatter(income)}</p>
+            <p>{moneyFormatter(income)}</p>
           </div>
         </Col>
         <Col md={4}>
-          <div className="inexp">
+          <div className="inexp minus">
             <h4 className="money">Total Expense</h4>
-            <p className="minus">{moneyFormatter(expense)}</p>
+            <p>{moneyFormatter(expense)}</p>
           </div>
         </Col>
       </Row>

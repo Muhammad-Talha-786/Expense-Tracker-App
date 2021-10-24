@@ -1,4 +1,5 @@
 import React, { useContext } from "react";
+import { Col, Row } from "react-bootstrap";
 import { GlobalContext } from "../context/GlobalState";
 
 //Money formatter function
@@ -18,24 +19,25 @@ function moneyFormatter(num) {
 }
 
 export const Transaction = ({ transaction }) => {
-  
   const { deleteTransaction } = useContext(GlobalContext);
 
   const sign = transaction.amount < 0 ? "-" : "+";
 
   return (
-    <li className={transaction.amount < 0 ? "minus" : "plus"}>
-      {transaction.text}{" "}
-      <span>
-        {sign}
-        {moneyFormatter(transaction.amount)}
-      </span>
-      <button
-        onClick={() => deleteTransaction(transaction.id)}
-        className="delete-btn"
-      >
-        x
-      </button>
-    </li>
+    <div
+      className={transaction.amount < 0 ? "mlist" : "plist"}
+      onClick={() => deleteTransaction(transaction.id)}
+    >
+      <Row>
+        <Col md={6} className="text-center">
+          {transaction.text}{" "}
+        </Col>
+
+        <Col md={6}>
+          {sign}
+          {moneyFormatter(transaction.amount)}{" "}
+        </Col>
+      </Row>
+    </div>
   );
 };

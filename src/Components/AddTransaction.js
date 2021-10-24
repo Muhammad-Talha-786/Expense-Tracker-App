@@ -2,7 +2,6 @@ import React, { useState, useContext } from "react";
 import { GlobalContext } from "../context/GlobalState";
 
 export const AddTransaction = () => {
-  
   const [text, setText] = useState("");
   const [amount, setAmount] = useState();
 
@@ -18,12 +17,16 @@ export const AddTransaction = () => {
     };
 
     addTransaction(newTransaction);
+
+    // Reset the input states
+    setText("");
+    setAmount(0);
   };
 
   return (
     <>
       <form onSubmit={onSubmit}>
-        <div className="form-control my-2">
+        <div className=" my-2">
           <label htmlFor="text">Vendor / Category</label>
           <input
             type="text"
@@ -32,19 +35,26 @@ export const AddTransaction = () => {
             placeholder="Enter text..."
           />
         </div>
-        <div className="form-control my-2">
+        <div className="my-2">
           <label htmlFor="amount">Transaction Amount</label>
+          <span
+            style={{
+              fontSize: "0.9rem",
+              color: "gray",
+              marginTop: "2px",
+              marginLeft: "5px",
+            }}
+          >
+            ( -ve for Expense / +ve for Income )
+          </span>
           <input
             type="number"
             value={amount}
             onChange={(e) => setAmount(e.target.value)}
             placeholder="Enter amount..."
           />
-          <p style={{ fontSize: "0.7rem", color: "gray", marginTop: "2px" }}>
-            ( -ve for Expense / +ve for Income )
-          </p>
         </div>
-        <button className="addTransactionButton" variant="outline-light">
+        <button className="addTransactionButton mt-4" variant="outline-light">
           Add Transaction
         </button>
       </form>
