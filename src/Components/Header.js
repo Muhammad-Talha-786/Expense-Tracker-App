@@ -4,6 +4,7 @@ import { AddTransaction } from "./AddTransaction";
 
 export const Header = () => {
   const [show, setShow] = useState(false);
+  
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
