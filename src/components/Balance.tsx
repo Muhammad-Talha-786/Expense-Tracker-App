@@ -3,14 +3,14 @@ import { Container, Row, Col } from "react-bootstrap";
 import { GlobalContext } from "../context/GlobalState";
 
 //Money formatter function
-function moneyFormatter(num) {
+function moneyFormatter(num:any) {
   let p = num.toFixed(2).split(".");
   return (
     "$ " +
     p[0]
       .split("")
       .reverse()
-      .reduce(function (acc, num, i, orig) {
+      .reduce(function (acc: any, num: any, i: any, orig: any) {
         return num === "-" ? acc : num + (i && !(i % 3) ? "," : "") + acc;
       }, "") +
     "." +
